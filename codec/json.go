@@ -418,9 +418,9 @@ func (e *jsonEncDriver) quoteStr(s string) {
 					w.writestr(s[start:i])
 				}
 				w.writestr(`\ufffd`)
-				i++
-				start = i
 			}
+			i += uint(size)
+			start = i
 			continue
 		}
 		// U+2028 is LINE SEPARATOR. U+2029 is PARAGRAPH SEPARATOR.
